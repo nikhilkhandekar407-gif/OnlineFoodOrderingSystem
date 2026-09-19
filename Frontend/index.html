@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TastyBite — Online Food Ordering</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Tasty<span>Bite</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+        <li class="nav-item"><a class="nav-link" href="index.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="orders.html">My Orders</a></li>
+        <li class="nav-item">
+          <a class="nav-link cart-icon-wrap" href="cart.html">
+            <i class="bi bi-cart3 fs-5"></i>
+            <span id="cartBadge" class="badge rounded-pill bg-danger d-none">0</span>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" id="authNavLink" href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section text-center">
+  <div class="container">
+    <h1 class="display-5">Craving something delicious?</h1>
+    <p class="lead mb-0">Order your favorite food, delivered hot & fresh to your door.</p>
+  </div>
+</section>
+
+<div class="container mb-5">
+  <!-- Search -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-6">
+      <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Search for dishes...">
+    </div>
+  </div>
+
+  <!-- Category pills -->
+  <div id="categoryList"></div>
+
+  <!-- Food grid -->
+  <div class="row" id="foodGrid"></div>
+</div>
+
+<footer class="text-center">
+  <div class="container">
+    <p class="mb-1">TastyBite &copy; 2026 — Student Project (BCA)</p>
+    <p class="mb-0 small">Built with ASP.NET Core Web API, Bootstrap & vanilla JS</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
