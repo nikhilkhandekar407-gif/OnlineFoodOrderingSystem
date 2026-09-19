@@ -1,6 +1,6 @@
 # 🍔 Online Food Ordering System
 
-A complete full-stack food ordering web application built as a college/portfolio project.
+A complete full-stack food ordering web application built as a college project.
 
 - **Backend:** ASP.NET Core 8 Web API + Entity Framework Core (SQL Server) + JWT Authentication
 - **Frontend:** HTML5, CSS3, Bootstrap 5, vanilla JavaScript (fetch API)
