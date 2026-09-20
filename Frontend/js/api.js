@@ -3,7 +3,7 @@
    Change API_BASE_URL if your backend runs on a different port.
    ========================================================= */
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://onlinefoodorderingsystem-3onp.onrender.com/api";
 
 /**
  * Generic fetch wrapper.
