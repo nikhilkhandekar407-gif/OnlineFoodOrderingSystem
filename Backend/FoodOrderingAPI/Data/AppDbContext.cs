@@ -15,21 +15,11 @@ namespace FoodOrderingAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FoodItem>()
-                .Property(f => f.Price)
-                .HasColumnType("decimal(10,2)");
+            modelBuilder.Entity<FoodItem>().Property(f => f.Price).HasColumnType("decimal(10,2)");
+            modelBuilder.Entity<Order>().Property(o => o.TotalAmount).HasColumnType("decimal(10,2)");
+            modelBuilder.Entity<OrderItem>().Property(oi => oi.UnitPrice).HasColumnType("decimal(10,2)");
 
-            modelBuilder.Entity<Order>()
-                .Property(o => o.TotalAmount)
-                .HasColumnType("decimal(10,2)");
-
-            modelBuilder.Entity<OrderItem>()
-                .Property(oi => oi.UnitPrice)
-                .HasColumnType("decimal(10,2)");
-
-            modelBuilder.Entity<Customer>()
-                .HasIndex(c => c.Email)
-                .IsUnique();
+            modelBuilder.Entity<Customer>().HasIndex(c => c.Email).IsUnique();
 
             modelBuilder.Entity<FoodItem>()
                 .HasOne(f => f.Category)
@@ -55,7 +45,6 @@ namespace FoodOrderingAPI.Data
                 .HasForeignKey(oi => oi.FoodItemId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Seed Categories
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Pizza", Description = "Wood-fired and classic pizzas", ImageUrl = "images/category-pizza.jpg" },
                 new Category { Id = 2, Name = "Burgers", Description = "Juicy grilled and veg burgers", ImageUrl = "images/category-burger.jpg" },
@@ -64,20 +53,19 @@ namespace FoodOrderingAPI.Data
                 new Category { Id = 5, Name = "Beverages", Description = "Cold drinks and shakes", ImageUrl = "images/category-beverage.jpg" }
             );
 
-            // Seed Food Items
             modelBuilder.Entity<FoodItem>().HasData(
-                new FoodItem { Id = 1, Name = "Margherita Pizza", Description = "Classic cheese and tomato pizza", Price = 249.00m, ImageUrl = "images/margherita.jpg", IsVeg = true, CategoryId = 1 },
-                new FoodItem { Id = 2, Name = "Farmhouse Pizza", Description = "Loaded with garden veggies", Price = 349.00m, ImageUrl = "images/farmhouse.jpg", IsVeg = true, CategoryId = 1 },
-                new FoodItem { Id = 3, Name = "Chicken Pepperoni Pizza", Description = "Spicy pepperoni with mozzarella", Price = 399.00m, ImageUrl = "images/pepperoni.jpg", IsVeg = false, CategoryId = 1 },
-                new FoodItem { Id = 4, Name = "Classic Veg Burger", Description = "Crispy veg patty with fresh veggies", Price = 129.00m, ImageUrl = "images/veg-burger.jpg", IsVeg = true, CategoryId = 2 },
-                new FoodItem { Id = 5, Name = "Chicken Zinger Burger", Description = "Crunchy fried chicken burger", Price = 179.00m, ImageUrl = "images/zinger.jpg", IsVeg = false, CategoryId = 2 },
-                new FoodItem { Id = 6, Name = "Paneer Butter Masala", Description = "Rich and creamy paneer curry", Price = 259.00m, ImageUrl = "images/paneer.jpg", IsVeg = true, CategoryId = 3 },
-                new FoodItem { Id = 7, Name = "Chicken Biryani", Description = "Fragrant basmati rice with chicken", Price = 289.00m, ImageUrl = "images/biryani.jpg", IsVeg = false, CategoryId = 3 },
-                new FoodItem { Id = 8, Name = "Dal Makhani", Description = "Slow-cooked black lentils", Price = 219.00m, ImageUrl = "images/dal.jpg", IsVeg = true, CategoryId = 3 },
-                new FoodItem { Id = 9, Name = "Chocolate Brownie", Description = "Warm brownie with chocolate sauce", Price = 149.00m, ImageUrl = "images/brownie.jpg", IsVeg = true, CategoryId = 4 },
-                new FoodItem { Id = 10, Name = "Gulab Jamun (2 pcs)", Description = "Soft milk dumplings in sugar syrup", Price = 99.00m, ImageUrl = "images/gulab-jamun.jpg", IsVeg = true, CategoryId = 4 },
-                new FoodItem { Id = 11, Name = "Cold Coffee", Description = "Chilled coffee with ice cream", Price = 119.00m, ImageUrl = "images/cold-coffee.jpg", IsVeg = true, CategoryId = 5 },
-                new FoodItem { Id = 12, Name = "Masala Lemonade", Description = "Refreshing spiced lemon drink", Price = 79.00m, ImageUrl = "images/lemonade.jpg", IsVeg = true, CategoryId = 5 }
+                new FoodItem { Id = 1, Name = "Margherita Pizza", Description = "Classic cheese and tomato pizza", Price = 249.00m, ImageUrl = "https://loremflickr.com/400/300/margherita,pizza,cheese", IsVeg = true, CategoryId = 1 },
+                new FoodItem { Id = 2, Name = "Farmhouse Pizza", Description = "Loaded with garden veggies", Price = 349.00m, ImageUrl = "https://loremflickr.com/400/300/pizza,vegetables", IsVeg = true, CategoryId = 1 },
+                new FoodItem { Id = 3, Name = "Chicken Pepperoni Pizza", Description = "Spicy pepperoni with mozzarella", Price = 399.00m, ImageUrl = "https://loremflickr.com/400/300/pepperoni,pizza,cheese", IsVeg = false, CategoryId = 1 },
+                new FoodItem { Id = 4, Name = "Classic Veg Burger", Description = "Crispy veg patty with fresh veggies", Price = 129.00m, ImageUrl = "https://loremflickr.com/400/300/burger,vegetarian", IsVeg = true, CategoryId = 2 },
+                new FoodItem { Id = 5, Name = "Chicken Zinger Burger", Description = "Crunchy fried chicken burger", Price = 179.00m, ImageUrl = "https://loremflickr.com/400/300/friedchicken,burger", IsVeg = false, CategoryId = 2 },
+                new FoodItem { Id = 6, Name = "Paneer Butter Masala", Description = "Rich and creamy paneer curry", Price = 259.00m, ImageUrl = "https://loremflickr.com/400/300/paneer,indiancurry", IsVeg = true, CategoryId = 3 },
+                new FoodItem { Id = 7, Name = "Chicken Biryani", Description = "Fragrant basmati rice with chicken", Price = 289.00m, ImageUrl = "https://loremflickr.com/400/300/biryani,rice", IsVeg = false, CategoryId = 3 },
+                new FoodItem { Id = 8, Name = "Dal Makhani", Description = "Slow-cooked black lentils", Price = 219.00m, ImageUrl = "https://loremflickr.com/400/300/lentils,indiancurry", IsVeg = true, CategoryId = 3 },
+                new FoodItem { Id = 9, Name = "Chocolate Brownie", Description = "Warm brownie with chocolate sauce", Price = 149.00m, ImageUrl = "https://loremflickr.com/400/300/chocolatebrownie,dessert", IsVeg = true, CategoryId = 4 },
+                new FoodItem { Id = 10, Name = "Gulab Jamun (2 pcs)", Description = "Soft milk dumplings in sugar syrup", Price = 99.00m, ImageUrl = "https://loremflickr.com/400/300/indiansweet,dessert", IsVeg = true, CategoryId = 4 },
+                new FoodItem { Id = 11, Name = "Cold Coffee", Description = "Chilled coffee with ice cream", Price = 119.00m, ImageUrl = "https://loremflickr.com/400/300/coldcoffee,milkshake", IsVeg = true, CategoryId = 5 },
+                new FoodItem { Id = 12, Name = "Masala Lemonade", Description = "Refreshing spiced lemon drink", Price = 79.00m, ImageUrl = "https://loremflickr.com/400/300/lemonade,drink", IsVeg = true, CategoryId = 5 }
             );
         }
     }

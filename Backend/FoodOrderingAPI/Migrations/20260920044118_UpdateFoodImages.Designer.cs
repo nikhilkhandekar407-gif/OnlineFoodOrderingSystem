@@ -3,6 +3,7 @@ using System;
 using FoodOrderingAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodOrderingAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260920044118_UpdateFoodImages")]
+    partial class UpdateFoodImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
@@ -147,7 +150,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 1,
                             CategoryId = 1,
                             Description = "Classic cheese and tomato pizza",
-                            ImageUrl = "https://loremflickr.com/400/300/margherita,pizza,cheese",
+                            ImageUrl = "https://loremflickr.com/400/300/margherita,pizza",
                             IsAvailable = true,
                             IsVeg = true,
                             Name = "Margherita Pizza",
@@ -158,7 +161,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 2,
                             CategoryId = 1,
                             Description = "Loaded with garden veggies",
-                            ImageUrl = "https://loremflickr.com/400/300/pizza,vegetables",
+                            ImageUrl = "https://loremflickr.com/400/300/vegetable,pizza",
                             IsAvailable = true,
                             IsVeg = true,
                             Name = "Farmhouse Pizza",
@@ -169,7 +172,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 3,
                             CategoryId = 1,
                             Description = "Spicy pepperoni with mozzarella",
-                            ImageUrl = "https://loremflickr.com/400/300/pepperoni,pizza,cheese",
+                            ImageUrl = "https://loremflickr.com/400/300/pepperoni,pizza",
                             IsAvailable = true,
                             IsVeg = false,
                             Name = "Chicken Pepperoni Pizza",
@@ -180,7 +183,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 4,
                             CategoryId = 2,
                             Description = "Crispy veg patty with fresh veggies",
-                            ImageUrl = "https://loremflickr.com/400/300/burger,vegetarian",
+                            ImageUrl = "https://loremflickr.com/400/300/veggie,burger",
                             IsAvailable = true,
                             IsVeg = true,
                             Name = "Classic Veg Burger",
@@ -191,7 +194,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 5,
                             CategoryId = 2,
                             Description = "Crunchy fried chicken burger",
-                            ImageUrl = "https://loremflickr.com/400/300/friedchicken,burger",
+                            ImageUrl = "https://loremflickr.com/400/300/chicken,burger",
                             IsAvailable = true,
                             IsVeg = false,
                             Name = "Chicken Zinger Burger",
@@ -202,7 +205,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 6,
                             CategoryId = 3,
                             Description = "Rich and creamy paneer curry",
-                            ImageUrl = "https://loremflickr.com/400/300/paneer,indiancurry",
+                            ImageUrl = "https://loremflickr.com/400/300/paneer,curry",
                             IsAvailable = true,
                             IsVeg = true,
                             Name = "Paneer Butter Masala",
@@ -213,7 +216,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 7,
                             CategoryId = 3,
                             Description = "Fragrant basmati rice with chicken",
-                            ImageUrl = "https://loremflickr.com/400/300/biryani,rice",
+                            ImageUrl = "https://loremflickr.com/400/300/biryani",
                             IsAvailable = true,
                             IsVeg = false,
                             Name = "Chicken Biryani",
@@ -224,7 +227,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 8,
                             CategoryId = 3,
                             Description = "Slow-cooked black lentils",
-                            ImageUrl = "https://loremflickr.com/400/300/lentils,indiancurry",
+                            ImageUrl = "https://loremflickr.com/400/300/lentil,curry",
                             IsAvailable = true,
                             IsVeg = true,
                             Name = "Dal Makhani",
@@ -235,7 +238,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 9,
                             CategoryId = 4,
                             Description = "Warm brownie with chocolate sauce",
-                            ImageUrl = "https://loremflickr.com/400/300/chocolatebrownie,dessert",
+                            ImageUrl = "https://loremflickr.com/400/300/chocolate,brownie",
                             IsAvailable = true,
                             IsVeg = true,
                             Name = "Chocolate Brownie",
@@ -246,7 +249,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 10,
                             CategoryId = 4,
                             Description = "Soft milk dumplings in sugar syrup",
-                            ImageUrl = "https://loremflickr.com/400/300/indiansweet,dessert",
+                            ImageUrl = "https://loremflickr.com/400/300/gulabjamun",
                             IsAvailable = true,
                             IsVeg = true,
                             Name = "Gulab Jamun (2 pcs)",
@@ -257,7 +260,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 11,
                             CategoryId = 5,
                             Description = "Chilled coffee with ice cream",
-                            ImageUrl = "https://loremflickr.com/400/300/coldcoffee,milkshake",
+                            ImageUrl = "https://loremflickr.com/400/300/icedcoffee",
                             IsAvailable = true,
                             IsVeg = true,
                             Name = "Cold Coffee",
@@ -268,7 +271,7 @@ namespace FoodOrderingAPI.Migrations
                             Id = 12,
                             CategoryId = 5,
                             Description = "Refreshing spiced lemon drink",
-                            ImageUrl = "https://loremflickr.com/400/300/lemonade,drink",
+                            ImageUrl = "https://loremflickr.com/400/300/lemonade",
                             IsAvailable = true,
                             IsVeg = true,
                             Name = "Masala Lemonade",
